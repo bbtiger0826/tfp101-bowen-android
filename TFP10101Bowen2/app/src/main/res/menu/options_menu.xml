@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- search_bar
+    app:showAsAction =
+    ifRoom -> 會顯示在actionBar中，如果已經有4個或者4個以上的Item時會隱藏在溢出列表中。(不局限於4個，依據寬窄而定)
+    collapseActionView -> 這個元件被折疊到一個按鈕中，當用戶選擇這個按鈕時則展開。(需配合ifRoom一起使用)
+
+    app:actionViewClass =
+    android.widget.SearchView -> 點擊search後會跑出一條可輸入框
+    -->
+
+    <item
+        android:id="@+id/search"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/textSearch"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="android.widget.SearchView"/>
+</menu>

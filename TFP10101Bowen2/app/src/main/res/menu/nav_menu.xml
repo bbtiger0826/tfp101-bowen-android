@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Home -->
+    <item
+        android:id="@+id/homepageFragment"
+        android:icon="@drawable/home_icon"
+        android:title="@string/HomePage" />
+
+    <!-- Hololive -->
+    <item
+        android:id="@+id/hololiveFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/Hololive" />
+
+    <!-- MemberSearch -->
+    <item
+        android:id="@+id/memberSearchFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/MemberSearch" />
+    <item
+        android:id="@+id/twitterFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textTwitter" />
+    <item
+        android:id="@+id/messageBoardFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textMessageBoard" />
+    <item
+        android:id="@+id/dialogFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textDialog" />
+
+    <item
+        android:id="@+id/appLinkFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textAppLink" />
+
+    <item
+        android:id="@+id/dataAccessFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textDataAccess" />
+
+    <item
+        android:id="@+id/multimediaFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textMultimedia" />
+
+    <item
+        android:id="@+id/googleMapFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textGoogleMap" />
+
+    <item
+        android:id="@+id/sensorFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textSensor" />
+
+    <item
+        android:id="@+id/notificationFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textNotification" />
+
+    <item
+        android:id="@+id/broadcastFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textBroadcast" />
+
+    <item
+        android:id="@+id/serviceFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textService" />
+
+    <item
+        android:id="@+id/alarmManagerFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textAlarmManager" />
+
+    <item
+        android:id="@+id/jobSchedulerFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textJobScheduler" />
+
+    <item
+        android:id="@+id/adMobFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textAdMob" />
+</menu>

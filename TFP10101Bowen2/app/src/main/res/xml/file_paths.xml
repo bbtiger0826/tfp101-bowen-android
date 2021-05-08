@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- name屬性: 自訂的路徑之名稱 -->
+<!-- path屬性: 自訂的路徑。點(.)表示預設的外部儲存體路徑/storage/emulated/0/Android/data/App的跟套件名/files/-->
+<paths>
+    <external-path
+        name="external_files"
+        path="." />
+</paths>

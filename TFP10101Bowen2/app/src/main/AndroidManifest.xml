@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="idv.tfp10101.tfp10101bowen2">
+
+    <!--
+    android:required="true"：需要設備有功能，如果沒有則app不能開啟
+    android:required="false"：希望設備有功能，即使沒有app也可以正常開啟
+    -->
+    <!-- 設定使用相機 -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" /> <!-- 設定使用加速度感應器 -->
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" /> <!-- 設定使用陀螺儀感應器 -->
+    <uses-feature
+        android:name="android.hardware.sensor.gyroscope"
+        android:required="true" /> <!-- 設定使用方位感應器(方位 ＋ 磁場) -->
+    <!-- <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" /> -->
+    <uses-feature
+        android:name="android.hardware.sensor.compass "
+        android:required="true" /> <!-- 設定使用接近感應器 -->
+    <uses-feature
+        android:name="android.hardware.sensor.proximity"
+        android:required="true" /> <!-- 設定使用光度感應器 -->
+    <uses-feature
+        android:name="android.hardware.sensor.light"
+        android:required="true" /> <!-- 設定使用權限 -->
+    <!-- 網路權限 -->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 使用全螢幕Intent的權限 Android 10(+ -->
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" /> <!-- 錄製音訊的權限 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 檢查網路狀態的權限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 使用概略定位的權限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 使用精準定位的權限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 設定使用權限(WAKE_LOCK) -->
+    <!--
+ 2. 檢查是否有符合意圖的App(Activity)
+        Android 11(API 30)開始，須在AndroidManifest.xml的<manifest>標籤中，
+        加入<queries>、<intent>標籤，描述欲跳轉的App
+    -->
+    <queries>
+
+        <!-- 電話簿App -->
+        <intent>
+            <action android:name="android.intent.action.PICK" />
+
+            <data android:mimeType="vnd.android.cursor.dir/phone_v2" />
+        </intent>
+        <!-- 電話App -->
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+        </intent>
+        <!-- 跳轉相機App Android 11(+ -->
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+        <!-- 挑選圖像 -->
+        <intent>
+            <action android:name="android.media.action.PICK" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TFP10101Bowen2"
+        android:usesCleartextTraffic="true">
+
+        <!-- multidex -->
+        android:name="android.support.multidex.MultiDexApplication"
+
+        <!-- 工具自動生成 -->
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"/>
+
+        <!-- 註冊服務 (MyJobService) -->
+        <service
+            android:name=".MyJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <!-- 註冊廣播接收器 -->
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- FileProvider相關設定 註冊 (若最後要取得照片原圖才需要) -->
+        <!-- authorities屬性: 自訂授權識別字串(預設Gradle檔的applicationId) -->
+        <!-- resource屬性: 自訂FileProvider資源檔的路徑和檔名(新建res底下xml文件夾，xml檔) -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider> <!-- 加入金鑰至Android專案 (my-project-test20210428) -->
+        <!-- android:value="複製的API金鑰" -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyB_ENNHaxQHBqIp2KNObr-9p0xB1cNjbrs" /> <!-- 設定GMS版本號 -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!-- 加入應用程式ID (AdMob) -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3940256099942544~3347511713" />
+    </application>
+
+</manifest>
