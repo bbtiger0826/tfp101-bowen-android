@@ -25,7 +25,7 @@ public class MySystemBroadcastReceiver extends BroadcastReceiver {
         // 實例化Intent物件 ("自訂的動作(Action)字串")
         Intent intentLocal = new Intent(Constants.ACTION_BATTERY_BROADCAST);
         // Bundle in Intent (putExtras)
-        intent.putExtras(bundle);
+        intentLocal.putExtras(bundle);
         // 發送 sendBroadcast(區域的Intent)
         LocalBroadcastManager.getInstance(context).sendBroadcast(intentLocal);
     }

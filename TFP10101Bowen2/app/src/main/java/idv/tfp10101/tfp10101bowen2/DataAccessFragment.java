@@ -93,7 +93,9 @@ public class DataAccessFragment extends Fragment {
         findViews(view);
 
         // Asset sava & load - 處理
-        handleAsset();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            handleAsset();
+        }
     }
 
     /**

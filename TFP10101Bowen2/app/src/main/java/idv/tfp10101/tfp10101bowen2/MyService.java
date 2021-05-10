@@ -8,7 +8,7 @@ import android.os.PowerManager;
 import android.util.Log;
 
 /**
- * 注意：要註冊Service (如果用工具點擊創建的方式，會自動生成)
+ * 注意：要在Manifest註冊Service (如果用工具點擊創建的方式，會自動生成)
  */
 public class MyService extends Service {
     private static final String TAG = "Bowen_Test";
@@ -93,6 +93,7 @@ public class MyService extends Service {
 
     /**
      * Wake Lock (不休眠) 相關處理
+     * 注意：需要開啟權限
      */
     private void handleWakeLock() {
         // 建立PowerManager.WakeLock物件 (PowerManager.PARTIAL_WAKE_LOCK, "自訂的名稱")

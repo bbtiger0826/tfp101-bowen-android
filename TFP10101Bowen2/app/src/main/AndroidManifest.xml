@@ -34,6 +34,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 使用精準定位的權限 -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 設定使用權限(WAKE_LOCK) -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- 接收開機完成廣播的權限 -->
     <!--
  2. 檢查是否有符合意圖的App(Activity)
         Android 11(API 30)開始，須在AndroidManifest.xml的<manifest>標籤中，
@@ -73,11 +74,18 @@
         <!-- multidex -->
         android:name="android.support.multidex.MultiDexApplication"
 
-        <!-- 工具自動生成 -->
+        <!--註冊服務 (MyService) - 工具自動生成 -->
         <service
             android:name=".MyService"
             android:enabled="true"
             android:exported="true"/>
+
+        <!-- 註冊服務 (MyIntentService) -->
+        <!--
+        <service
+            android:name=".MyIntentService"
+            android:exported="false"/>
+        -->
 
         <!-- 註冊服務 (MyJobService) -->
         <service

@@ -81,6 +81,9 @@ public class NotificationFragment extends Fragment {
 
     /**
      * 發送通知功能
+     * 步驟1：NotificationManager <- NotificationChannel
+     * 步驟2：NotificationManager <- Notification <- PendingIntent(如果有要跳轉意圖)
+     * 步驟3：NotificationManager.notify
      */
     private void handleSendButton() {
         buttonSend.setOnClickListener(view -> {

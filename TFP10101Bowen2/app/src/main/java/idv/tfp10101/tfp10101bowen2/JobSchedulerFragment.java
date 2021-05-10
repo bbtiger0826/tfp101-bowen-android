@@ -70,7 +70,7 @@ public class JobSchedulerFragment extends Fragment {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             return;
         }
-        // 取得JobScheduler物件
+        // 取得JobScheduler物件 (取得系統級服務物件)
         jobScheduler = (JobScheduler) mainActivity.getSystemService(Context.JOB_SCHEDULER_SERVICE);
 
         // 自定義JobService類別 (MyJobService.class)
@@ -83,9 +83,10 @@ public class JobSchedulerFragment extends Fragment {
         // 新建JobInfo物件
         JobInfo jobInfo = new JobInfo.Builder(Constants.MY_JOB, componentName)
                 .setRequiresCharging(true)      // 設定是否必須在充電狀態(電量大於90%)下才啟動
+                .setPersisted(true) // 設定重開機後，是否啟動(需在Manifest檔加上使用權限RECEIVE_BOOT_COMPLETED)
                 .build();
 
-        // 排入行程
+        // 排入行程 (int = jobScheduler.schedule(jobInfo);)
         switch (jobScheduler.schedule(jobInfo)) {
             case JobScheduler.RESULT_SUCCESS :
                 Toast.makeText(mainActivity, "RESULT_SUCCESS", Toast.LENGTH_SHORT).show();
