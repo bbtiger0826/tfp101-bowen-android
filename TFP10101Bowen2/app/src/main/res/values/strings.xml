@@ -53,4 +53,5 @@
     <string name="textBroadcast">Broadcast</string>
     <string name="textAlarmSet">AlarmSet</string>
     <string name="textAlarmDelete">AlarmDelete</string>
+    <string name="textPositioning">Positioning</string>
 </resources>

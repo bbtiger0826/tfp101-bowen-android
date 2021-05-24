@@ -16,6 +16,8 @@ import java.util.Set;
  */
 public class RepuestPermission extends AppCompatActivity {
     private static final int REQ_PERMISSIONS = 1;
+    //
+    private MainActivity mainActivity;
     // 所需權限陣列
     private Set<String> permissions;
     // 尚未同意的權限
@@ -25,6 +27,7 @@ public class RepuestPermission extends AppCompatActivity {
     private RepuestPermission() {
         this.permissions = new HashSet<>();
         this.waitingforPermission = new HashSet<>();
+        this.mainActivity = null;
     }
 
     //創建 RepuestPermission 的一個對象
@@ -37,6 +40,10 @@ public class RepuestPermission extends AppCompatActivity {
             instance = new RepuestPermission();
         }
         return instance;
+    }
+
+    public void setMainActivity (MainActivity mainActivity) {
+        this.mainActivity = mainActivity;
     }
 
     public void addPermission(String Permission) {
@@ -56,7 +63,7 @@ public class RepuestPermission extends AppCompatActivity {
         // App所需權限陣列 逐一判斷
         for (String permission : permissions) {
             // 抓取檢查狀態int
-            int result = ContextCompat.checkSelfPermission(this, permission);
+            int result = ContextCompat.checkSelfPermission(mainActivity, permission);
             // 是否有授權
             if (result != PackageManager.PERMISSION_GRANTED) {
                 // 存入尚未同意set 後續再詢問
@@ -69,12 +76,28 @@ public class RepuestPermission extends AppCompatActivity {
     }
 
     /**
+     * 加入權限並詢問
+     */
+    public void requestPermission(String[] arrPermission) {
+        // 加入
+        for (String permission : arrPermission) {
+            permissions.add(permission);
+        }
+        // Activity中,詢問權限 (跳出對話框) -> (Activity activity, String[] permissions, int 自訂詢問代碼)
+        ActivityCompat.requestPermissions(
+                mainActivity,
+                arrPermission,
+                REQ_PERMISSIONS
+        );
+    }
+
+    /**
      * 尚未同意權限 詢問
      */
     public void requestWaitingforPermission() {
         // Activity中,詢問權限 (跳出對話框) -> (Activity activity, String[] permissions, int 自訂詢問代碼)
         ActivityCompat.requestPermissions(
-                this,
+                mainActivity,
                 waitingforPermission.toArray(new String[waitingforPermission.size()]),
                 REQ_PERMISSIONS
         );
@@ -93,11 +116,11 @@ public class RepuestPermission extends AppCompatActivity {
             for (int index = 0; index < grantResults.length; index++) {
                 if (grantResults[index] == PackageManager.PERMISSION_GRANTED) {
                     // 已同意權限的後續處理..
-                    Toast.makeText(this, "已同意權限", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mainActivity, "已同意權限", Toast.LENGTH_SHORT).show();
                     // handleMap(savedInstanceState);
                 } else{
                     // 未同意權限的後續處理，EX. Toast提醒未同意無法使用xx功能
-                    Toast.makeText(this, "未同意權限", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mainActivity, "未同意權限", Toast.LENGTH_SHORT).show();
                 }
             }
         }

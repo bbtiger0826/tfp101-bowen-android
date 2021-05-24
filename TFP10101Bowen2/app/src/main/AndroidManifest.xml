@@ -31,8 +31,8 @@
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" /> <!-- 錄製音訊的權限 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 檢查網路狀態的權限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 使用概略定位的權限 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 使用精準定位的權限 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 使用大約定位的權限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 使用精準定位的權限 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 設定使用權限(WAKE_LOCK) -->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> <!-- 接收開機完成廣播的權限 -->
     <!--
@@ -116,19 +116,21 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
-        </provider> <!-- 加入金鑰至Android專案 (my-project-test20210428) -->
-        <!-- android:value="複製的API金鑰" -->
+        </provider>
+
+        <!-- <meta-data>是一個鍵值對，用來為父控制元件儲存多餘的資料 -->
+        <!-- 加入金鑰至Android專案 (console.cloud.google.com -> my-project-test20210428) -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyB_ENNHaxQHBqIp2KNObr-9p0xB1cNjbrs" /> <!-- 設定GMS版本號 -->
+            android:value="AIzaSyB_ENNHaxQHBqIp2KNObr-9p0xB1cNjbrs" /> <!-- 複製的API金鑰 -->
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:value="@integer/google_play_services_version" /> <!-- 設定GMS版本號 -->
 
         <!-- 加入應用程式ID (AdMob) -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3940256099942544~3347511713" />
+            android:value="ca-app-pub-5447360545310980~6612559860" /> <!-- 應用程式ID -->
     </application>
 
 </manifest>

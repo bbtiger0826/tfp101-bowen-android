@@ -124,4 +124,9 @@
         android:name="idv.tfp10101.tfp10101bowen2.BroadcastFragment"
         android:label="fragment_broadcast"
         tools:layout="@layout/fragment_broadcast" />
+    <fragment
+        android:id="@+id/positioningFragment"
+        android:name="idv.tfp10101.tfp10101bowen2.PositioningFragment"
+        android:label="fragment_positioning"
+        tools:layout="@layout/fragment_positioning" />
 </navigation>

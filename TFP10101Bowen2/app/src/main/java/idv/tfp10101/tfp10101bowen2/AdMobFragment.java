@@ -16,6 +16,9 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
+
+import java.util.Arrays;
 
 public class AdMobFragment extends Fragment {
     private MainActivity mainActivity;
@@ -64,6 +67,11 @@ public class AdMobFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         findViews(view);
+
+        // 如果app還在Devlopment階段，要加上這段才能測試(待驗證)
+        RequestConfiguration configuration = new RequestConfiguration.Builder()
+                .setTestDeviceIds(Arrays.asList(AdRequest.DEVICE_ID_EMULATOR)).build();
+        MobileAds.setRequestConfiguration(configuration);
 
         // 初始化MobileAds
         MobileAds.initialize(mainActivity);

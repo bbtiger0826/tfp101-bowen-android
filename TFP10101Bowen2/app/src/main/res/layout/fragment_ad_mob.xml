@@ -11,6 +11,7 @@
     <!-- ads:adSize="BANNER" -->
     <!-- ads:adUnitId="廣告單元ID" -->
     <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,5 +20,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-3940256099942544/6300978111"/>
+        ads:adUnitId="ca-app-pub-5447360545310980/8280864754"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,6 +48,11 @@
         android:title="@string/textMultimedia" />
 
     <item
+        android:id="@+id/positioningFragment"
+        android:icon="@android:drawable/ic_menu_send"
+        android:title="@string/textPositioning" />
+
+    <item
         android:id="@+id/googleMapFragment"
         android:icon="@android:drawable/ic_menu_send"
         android:title="@string/textGoogleMap" />

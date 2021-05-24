@@ -44,8 +44,8 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
     // 加入函式庫
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
-    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+    implementation 'com.google.android.gms:play-services-location:18.0.0'  // 地位、地名地址與緯經度轉換、計算距離..等
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'  // 顯示地圖、街景圖、導航..等
     implementation 'com.google.android.gms:play-services-ads:20.1.0'
     implementation 'apache-lang:commons-lang:2.1' // StringUtils
 
